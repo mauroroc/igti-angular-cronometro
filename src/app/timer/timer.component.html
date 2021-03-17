@@ -1,0 +1,19 @@
+<div [class]="'phase' + tService.phase">
+    <div class="timeLeft">{{tService.timeLeft/1000 | number:'1.1-1'}}</div>
+    <div>
+        Exercicio {{tService.currEx+1}}/{{tService.exercises.length}}: {{tService.exercises[tService.currEx].name}}
+    </div>
+    <div>
+        Repeticao {{tService.currRep+1}}/{{tService.exercises[tService.currEx].repetition}}
+    </div>
+    <div>
+        Fase: {{this.fotmatPhase(tService.phase)}}
+    </div>
+</div>
+
+<div class="tools">
+    <button (click)="start()">Iniciar</button>
+    <button (click)="pause()">Pausar</button>
+    <button (click)="restart()">Recomecar</button>
+    <button (click)="nextPhase()">Proxima Fase</button>
+</div>

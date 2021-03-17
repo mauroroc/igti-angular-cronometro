@@ -1,0 +1,61 @@
+<form [formGroup]="exerciseForm" (ngSubmit)="add()">
+    <div>
+        Exercicio: <input formControlName="name" type="text">
+    </div>
+    <div>
+        Duracao: <input formControlName="duration" type="number">
+    </div>
+    <div>
+        Repeticao: <input formControlName="repetion" type="number">
+    </div>
+    <div>
+        Preparacao: <input formControlName="preparation" type="number">
+    </div>
+    <div>
+        Descanso: <input formControlName="rest" type="number">
+    </div>
+    <button type="submit" [disabled]="exerciseForm.invalid" >Adicionar</button>
+</form>
+
+<table>
+    <tr>
+        <th>
+            Exercicio
+        </th>
+        <th>
+            Duracao
+        </th>
+        <th>
+            Repeticao
+        </th>
+        <th>
+            Preparacao
+        </th>
+        <th>
+            Descanso
+        </th>
+        <th>
+            Excluir
+        </th>
+    </tr>
+    <tr *ngFor="let ex of tService.exercises; let i = index">
+        <td>
+            {{ex.name}}
+        </td>
+        <td>
+            {{ex.duration}}
+        </td>
+        <td>
+            {{ex.repetition}}
+        </td>
+        <td>
+            {{ex.preparation}}
+        </td>
+        <td>
+            {{ex.rest}}
+        </td>
+        <td>
+            <button (click)="del(i)">Excluir</button>
+        </td>
+    </tr>
+</table>
